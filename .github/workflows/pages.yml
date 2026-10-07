@@ -1,5 +1,4 @@
 name: Deploy Iron Vein site
-# Redeploy branded header
 
 on:
   push:
@@ -33,3 +32,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+# Redeploy compact Piercing header
