@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171719">
+  <meta name="description" content="Finn trygg piercinginformasjon og forbered en personlig vurdering fra Iron Vein.">
+  <title>Iron Vein · Piercing Check</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171719'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23d7ff3f' stroke-width='6'/%3E%3Ccircle cx='32' cy='15' r='5' fill='%23f5f5f0'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Iron Vein hjem">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>IRON VEIN</span>
+    </a>
+    <nav aria-label="Hovedmeny">
+      <a href="#questions">Spørsmål</a>
+      <a href="#check">Piercing check</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro shell">
+      <div class="eyebrow">PROFESJONELL VEILEDNING · NORSK</div>
+      <h1>Hva trenger piercingen din nå?</h1>
+      <p class="lead">Velg situasjonen din. Du får relevante svar først — og kan forberede en personlig vurdering hvis generelle råd ikke er nok.</p>
+      <div class="path-grid" aria-label="Velg situasjon">
+        <button class="path-card active" data-path="navle">
+          <span class="path-number">01</span>
+          <strong>Er navlepiercingen min riktig?</strong>
+          <span>Anatomi, plassering, vinkel og smykke</span>
+        </button>
+        <button class="path-card" data-path="healing">
+          <span class="path-number">02</span>
+          <strong>Gror den normalt?</strong>
+          <span>Hevelse, væske, skorper og irritasjon</span>
+        </button>
+        <button class="path-card" data-path="downsize">
+          <span class="path-number">03</span>
+          <strong>Trenger jeg downsizing?</strong>
+          <span>Lengde, bevegelse og riktig tidspunkt</span>
+        </button>
+        <button class="path-card" data-path="jewelry">
+          <span class="path-number">04</span>
+          <strong>Er smykket riktig?</strong>
+          <span>Materiale, størrelse og passform</span>
+        </button>
+      </div>
+      <div class="recommendation" id="recommendation" aria-live="polite"></div>
+    </section>
+
+    <section class="questions-section" id="questions">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">KUNNSKAPSBASEN</span>
+            <h2>Vanlige spørsmål, tydelige svar</h2>
+          </div>
+          <label class="search">
+            <span class="sr-only">Søk i spørsmål</span>
+            <input id="searchInput" type="search" placeholder="Søk: kul, navle, downsizing …">
+          </label>
+        </div>
+        <div class="chips" id="chips" aria-label="Filtrer etter tema">
+          <button class="chip active" data-filter="all">Alle</button>
+          <button class="chip" data-filter="navle">Navle</button>
+          <button class="chip" data-filter="tilheling">Tilheling</button>
+          <button class="chip" data-filter="smykke">Smykke</button>
+          <button class="chip" data-filter="hverdag">Hverdag</button>
+          <button class="chip" data-filter="hjelp">Når få hjelp</button>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+        <p class="empty" id="emptyState" hidden>Ingen spørsmål matcher søket. Prøv et annet ord.</p>
+      </div>
+    </section>
+
+    <section class="check-section" id="check">
+      <div class="shell check-layout">
+        <div class="check-copy">
+          <span class="eyebrow">PERSONLIG VURDERING</span>
+          <h2>Forbered din Piercing Check</h2>
+          <p>Generell informasjon kan ikke avgjøre anatomi, plassering eller årsaken til et problem. Svarene dine samles i en ryddig oppsummering som du kan sende til en profesjonell piercer.</p>
+          <div class="privacy-note">
+            <strong>Privat i denne testversjonen</strong>
+            <span>Bildet forhåndsvises kun på enheten din og lastes ikke opp.</span>
+          </div>
+        </div>
+        <form class="check-form" id="checkForm">
+          <div class="field-row">
+            <label>Hva gjelder det?
+              <select id="topic" required>
+                <option value="">Velg tema</option>
+                <option>Navleanatomi og plassering</option>
+                <option>Tilheling eller irritasjon</option>
+                <option>Downsizing</option>
+                <option>Smykke og materiale</option>
+                <option>Second opinion</option>
+              </select>
+            </label>
+            <label>Når ble piercingen tatt?
+              <input id="date" type="date">
+            </label>
+          </div>
+          <fieldset>
+            <legend>Hva merker du nå?</legend>
+            <div class="check-options">
+              <label><input type="checkbox" name="symptom" value="Hevelse"> Hevelse</label>
+              <label><input type="checkbox" name="symptom" value="Rødhet"> Rødhet</label>
+              <label><input type="checkbox" name="symptom" value="Væske eller skorpe"> Væske/skorpe</label>
+              <label><input type="checkbox" name="symptom" value="Kul"> Kul</label>
+              <label><input type="checkbox" name="symptom" value="Smerte"> Smerte</label>
+              <label><input type="checkbox" name="symptom" value="Smykket flytter seg"> Flytting/migrasjon</label>
+            </div>
+          </fieldset>
+          <label>Beskriv situasjonen kort
+            <textarea id="description" rows="4" placeholder="Hva har endret seg, og når startet det?"></textarea>
+          </label>
+          <label class="upload">Legg til et tydelig bilde uten ansikt
+            <input id="photo" type="file" accept="image/*">
+            <span id="fileName">Ingen fil valgt</span>
+          </label>
+          <label class="consent"><input id="consent" type="checkbox" required> Jeg forstår at dette ikke er en medisinsk diagnose. Ved alvorlige symptomer må jeg kontakte lege.</label>
+          <button class="primary" type="submit">Lag min oppsummering</button>
+          <p class="form-note">Pilot: Oppsummeringen sendes ikke automatisk ennå.</p>
+        </form>
+      </div>
+      <div class="summary-modal" id="summaryModal" hidden>
+        <div class="summary-card" role="dialog" aria-modal="true" aria-labelledby="summaryTitle">
+          <button class="close" id="closeModal" aria-label="Lukk">×</button>
+          <span class="eyebrow">KLAR FOR VURDERING</span>
+          <h2 id="summaryTitle">Din oppsummering</h2>
+          <pre id="summaryText"></pre>
+          <button class="primary" id="copySummary">Kopier oppsummeringen</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety shell">
+      <span class="eyebrow">VIKTIG</span>
+      <h2>Når bør du søke rask hjelp?</h2>
+      <p>Kontakt lege ved raskt økende smerte eller hevelse, feber, røde striper fra området, sterk varme i vevet eller tydelig sykdomsfølelse. Ikke fjern smykket på egen hånd ved mistanke om infeksjon uten profesjonell vurdering.</p>
+    </section>
+  </main>
+
+  <footer><span>IRON VEIN · PIERCING CHECK</span><span>Faglig veiledning — ikke medisinsk diagnose</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
